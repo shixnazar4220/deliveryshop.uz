@@ -62,7 +62,22 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="row">
+
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="<?= \yii\helpers\Url::to(['menu/index'])?>" class="list-group-item active">Menu</a>
+                    <a href="<?= \yii\helpers\Url::to(['category/index'])?>" class="list-group-item">Categoriya</a>
+                    <a href="<?= \yii\helpers\Url::to(['product/index'])?>" class="list-group-item">Maxsulotlar</a>
+                    <a href="<?= \yii\helpers\Url::to(['cart/index'])?>" class="list-group-item">Korzina</a>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <?= $content ?>
+            </div>
+        </div>
+
     </div>
 </div>
 
