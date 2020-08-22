@@ -10,6 +10,13 @@ return [
 //            'class' => 'common\modules\auth\Module',
 //        ],
 //    ],
+    'modules' => [
+        'roxymce' => [
+            'class' => 'navatech\roxymce\Module',
+            'uploadFolder' => '@frontend/web/uploads/images',
+            'uploadUrl' => '/uploads/images',
+        ],
+    ],
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
