@@ -21,21 +21,36 @@ BootstrapTreeviewAsset::register($this);
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group field-category-parent_id has-success">
+                <label class="control-label" for="category-parent_id">Родительская категория</label>
+                <select id="category-parent_id" class="form-control" name="Category[parent_id]">
+                    <option value="0">Bosh kategoriya</option>
+                    <?= \common\components\CategoryWidget::widget(['tpl' => 'select','model'=>$model])?>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+        </div>
+        <div class="col-md-4">
+            <b>Rasm</b>
+            <div class="input-group">
+                <span class="input-group-btn btn-default" style="background-color: #BBB">
+                    <a type="button"  class=" fancybox btn btn-flat" href="<?= Url::to([
+                        '/roxymce/default',
+                        'type'   => 'image',
+                        'input'  => 'selectimage',
+                        'dialog' => 'fancybox',
+                    ]) ?>" data-fancybox-type="iframe" ><i class="fa fa-image"></i>
+                    </a>
+                </span>
 
-    <?= $form->field($model, 'parent_id')->textInput() ?>
-
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
-
-
-    <input type="text" id="fieldID">
-
-    <a class="fancybox" data-fancybox-type="iframe" href="<?= Url::to([
-        '/roxymce/default',
-        'type'   => 'image',
-        'input'  => 'fieldID',
-        'dialog' => 'fancybox',
-    ]) ?>">Click to show Roxy Filemanager</a>
+                <?= $form->field($model, 'image')->textInput(['id'=>'selectimage', 'class'=>'form-control','placeholder'=>'Rasm'])->label('')?>
+            </div>
+        </div>
+    </div>
 
 
     <?php
@@ -44,12 +59,12 @@ BootstrapTreeviewAsset::register($this);
     ]);
     ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_time')->textInput() ?>
 
-    <?= $form->field($model, 'user_id')->textInput() ?>
+    <?= $form->field($model, 'created_time')->hiddenInput(['value'=>strtotime("now")])->label(false) ?>
 
+    <?= $form->field($model, 'user_id')->hiddenInput(['value'=>Yii::$app->user->identity->getId()])->label(false) ?>
+    
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

@@ -62,25 +62,8 @@ AppAsset::register($this);
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <div class="row">
 
-            <?php $cname = Yii::$app->controller->id;?>
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="<?= \yii\helpers\Url::to(['site/index'])?>" class="list-group-item <?= ($cname=='site')?'active':''?>">Bosh sahifa</a>
-                    <a href="<?= \yii\helpers\Url::to(['user/index'])?>" class="list-group-item <?= ($cname=='user')?'active':''?>">Administratorlar</a>
-                    <a href="<?= \yii\helpers\Url::to(['menu/index'])?>" class="list-group-item <?= ($cname=='menu')?'active':''?>">Menu</a>
-                    <a href="<?= \yii\helpers\Url::to(['category/index'])?>" class="list-group-item <?= ($cname=='category')?'active':''?>">Categoriya</a>
-                    <a href="<?= \yii\helpers\Url::to(['product/index'])?>" class="list-group-item <?= ($cname=='product')?'active':''?>">Maxsulotlar</a>
-                    <a href="<?= \yii\helpers\Url::to(['cart/index'])?>" class="list-group-item <?= ($cname=='cart')?'active':''?>">Korzina</a>
-                </div>
-            </div>
-
-            <div class="col-md-9">
                 <?= $content ?>
-            </div>
-        </div>
-
     </div>
 </div>
 
