@@ -10,14 +10,26 @@ use yii\web\AssetBundle;
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $baseUrl = '@web/shoptheme/';
     public $css = [
-        'css/site.css',
+        'style.css',
     ];
     public $js = [
+        'js/jquery.min.js',
+        'js/bootstrap.min.js',
+        'js/owl.carousel.min.js',
+        'js/mobile-menu.js',
+        'js/jquery-ui.js',
+        'js/main.js',
+        'js/countdown.js',
+        'js/revolution-slider.js',
+        'js/scriptmain.js',
+
     ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-    ];
+
+
+//    public $depends = [
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap\BootstrapAsset',
+//    ];
 }
