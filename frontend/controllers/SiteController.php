@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Product;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -38,7 +39,7 @@ class SiteController extends Controller
                     [
                         'actions' => ['logout'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['user'],
                     ],
                 ],
             ],
@@ -74,7 +75,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $sales = Product::find()->all();
+        return $this->render('index',['sales'=>$sales]);
     }
 
     /**

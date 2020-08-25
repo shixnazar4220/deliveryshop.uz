@@ -16,6 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
+        <?= Html::a('Yaratish', ['create'], ['class' => 'btn btn-success']) ?>
+
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -24,6 +26,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+        <?= Html::a('Ro\'yhat', ['index'], ['class' => 'btn btn-warning']) ?>
+
+
     </p>
 
     <?= DetailView::widget([
@@ -32,11 +37,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'category_id',
-            'description:ntext',
+            'description:html',
             'images:ntext',
             'created_time:datetime',
             'hits',
             'amount',
+            'old_amount',
+            'newproduct',
             'amount_format',
             'user_id',
         ],

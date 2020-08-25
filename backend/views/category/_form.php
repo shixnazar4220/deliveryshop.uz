@@ -55,7 +55,8 @@ BootstrapTreeviewAsset::register($this);
 
     <?php
     echo \navatech\roxymce\widgets\RoxyMceWidget::widget([
-        'name' => 'Category[description]'
+        'model'     => $model,
+        'attribute' => 'description',
     ]);
     ?>
 

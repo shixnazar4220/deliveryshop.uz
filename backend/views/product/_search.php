@@ -31,6 +31,10 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'amount') ?>
 
+    <?php // echo $form->field($model, 'old_amount') ?>
+
+    <?php // echo $form->field($model, 'newproduct') ?>
+
     <?php // echo $form->field($model, 'amount_format') ?>
 
     <?php // echo $form->field($model, 'user_id') ?>
