@@ -79,6 +79,9 @@ class UserController extends Controller
             $model->updated_at = strtotime('now');
 
             if($model->save()){
+                $auth = Yii::$app->authManager;
+                $role = $auth->getRole('admin');
+                $auth->assign($role, $model->id);
                 return $this->redirect(['view', 'id' => $model->id]);
             }
 
@@ -113,9 +116,7 @@ class UserController extends Controller
 
             if($model->save()){
 
-                $auth = Yii::$app->authManager;
-                $role = $auth->getRole('admin');
-                $auth->assign($role, $model->id);
+
 
                 return $this->redirect(['view', 'id' => $model->id]);
             }
